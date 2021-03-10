@@ -96,6 +96,9 @@ export default class RecieverDetails extends React.Component {
                 <Card>
                     <Text>Reason: {this.state.reason}</Text>
                 </Card>
+                <Card>
+                    <Text>Price: {this.state.cost} {this.state.currencyType}</Text>
+                </Card>
             </Card>
         </View>
         <View style={{flex: 0.3}}>
