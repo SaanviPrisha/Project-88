@@ -13,6 +13,8 @@ export default class RecieverDetails extends React.Component {
         bookName: this.props.navigation.getParam('Data')['book_name'],
         reason: this.props.navigation.getParam('Data')['reason'],
         requestID: this.props.navigation.getParam('Data')['request_id'],
+        cost: 0,
+        currencyType: '',
         recieverName: '',
         recieverContact: '',
         recieverAddress: '',
@@ -30,14 +32,17 @@ export default class RecieverDetails extends React.Component {
           rName: data.first_name,
           rAddress: data.address,
           rContact: data.contact_Info,
+          currencyType: data.currency_type
         })
       });
     })
     db.collection("Requested_items").where("request_id","==",this.state.requestID).get()
     .then(snapshot => {
         snapshot.forEach(doc => {
+            var data = doc.data()
             this.setState({
-                rDocId: doc.id
+                rDocId: doc.id,
+                cost: data.price 
             })
         })
     })
