@@ -10,7 +10,7 @@ export default class RecievedBooks extends React.Component {
     super()
     this.state = {
       userId: firebase.auth().currentUser.email,
-      allItemss: [],
+      allItems: [],
     }
   }
   getAllRecievedItems = () => {
