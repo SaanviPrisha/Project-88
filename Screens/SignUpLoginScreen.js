@@ -23,6 +23,7 @@ export default class WelcomeScreen extends React.Component {
       lastName: '',
       contactInfo: '',
       confirmPassword: '',
+      currencyType: '',
       isModalVisible: false
     };
   }
@@ -101,6 +102,15 @@ export default class WelcomeScreen extends React.Component {
                     });
                   }}>
                 </TextInput>
+                <TextInput
+                  placeholder={'Currency Type'}
+                  style={styles.textInput1}
+                  onChangeText={(text) => {
+                    this.setState({
+                      currencyType: text,
+                    });
+                  }}>
+                </TextInput>
                 <TouchableOpacity style={styles.register} onPress={() => {this.userSignUp(this.state.EmailId,this.state.Password,this.state.confirmPassword)}}>
                   <Text>Register</Text>
                 </TouchableOpacity>
@@ -144,7 +154,8 @@ export default class WelcomeScreen extends React.Component {
           address: this.state.Adress,
           contact_Info: this.state.contactInfo,
           email_id: this.state.EmailId,
-          item_request_active: false
+          item_request_active: false,
+          currency_type: this.state.currencyType
         })
         alert("User was added succesfully")
       })
