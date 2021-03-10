@@ -18,6 +18,7 @@ export default class HomeScreen extends React.Component {
             itemStatus: '',
             docId: '',
             username: '',
+            price: 0,
         }
     }
     requestItem = async () => {
@@ -133,6 +134,14 @@ export default class HomeScreen extends React.Component {
                         onChangeText={(text) => {
                         this.setState({
                             description: text
+                        });}}>
+                    </TextInput>
+                    <TextInput
+                        placeholder={'Price'}
+                        style={styles.textInput1}
+                        onChangeText={(text) => {
+                        this.setState({
+                            value: text
                         });}}>
                     </TextInput>
                     <TextInput
